@@ -1,34 +1,30 @@
 import "./App.css";
+import Titulo from "./Components/Título";
 
-function App() {
-  const welcome = <h1>Bem vindo ao curso!</h1>;
-  const gostando = true;
-  const numero = 2;
-  const cursos = ["HTML", "CSS", "JS"];
-
-  // Continuamos daqui amanhã
-
+const App = () => {
   return (
-    // React Fragment
     <>
-      {/* Código HTML */}
-      <div>
-        <h1>Aula 01</h1>
-        {welcome}
-        <h2>Introdução ao React</h2>
-        {gostando ? "Estou  curtindo" : <h3>NÃO CURTI</h3>}
-        <p className={numero % 2 ? "impar" : "par"}>{numero}</p>
-        {gostando && (
-          <div>
-            <h3>Estou curtindo muito</h3>
-          </div>
-        )}
-        {cursos.map((curso) => {
-          return <p>{curso}</p>;
-        })}
-      </div>
+      <Titulo
+        nome="ReactJS"
+        data={new Date(2024, 11, 5)}
+        descricao="curso introdutório"
+      />
+      <Titulo
+        nome="NodeJS"
+        data={new Date(2024, 10, 25)}
+        descricao="curso introdutório"
+      />
+      <Titulo
+        nome="NodeJS"
+        data={new Date(2024, 10, 25)}
+        descricao="curso introdutório"
+      >
+        <hr />
+        <p>Eu sou o conteúdo children</p>
+        <hr />
+      </Titulo>
     </>
   );
-}
+};
 
 export default App;

@@ -1,17 +1,19 @@
 interface TituloProps {
-  nome: string;
-  data: Date;
-  descricao?: string;
+  nome?: string;
   children?: React.ReactNode;
 }
 
-const Titulo = ({ nome, data, descricao, children }: TituloProps) => {
+const Titulo = ({ nome }: TituloProps) => {
+  if (!nome) {
+    return (
+      <>
+        <h1>Nenhum curso selecionado...</h1>
+      </>
+    );
+  }
   return (
     <>
-      <h1>Curso de {nome}</h1>
-      <h2>{data.toLocaleDateString()}</h2>
-      {descricao}
-      {children}
+      <h1>Curso selecionado: {nome}</h1>
     </>
   );
 };
